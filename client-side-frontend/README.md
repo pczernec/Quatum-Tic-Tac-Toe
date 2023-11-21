@@ -12,6 +12,11 @@
 
 *Created with npm create-react-app \<folder name\>
 
+Before start: `npm install react-scripts`
+Before start: `npm install anxios`
+
+How to start: `npm start`
+
 
 # Getting Started with Create React App
 

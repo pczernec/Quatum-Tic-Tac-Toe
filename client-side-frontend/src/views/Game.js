@@ -1,7 +1,7 @@
 
 function Game() {
     return (
-        <div>
+        <div className='App'>
             <h1>Game ID</h1>
 
         </div>

@@ -1,6 +1,7 @@
-import ToggleGroup from '../components/ToggleGroup'
-import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import ToggleGroup from '../components/ToggleGroup';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import axios from 'axios';
 
 import '../stylesheets/Buttons.css'
 
@@ -29,7 +30,6 @@ function Start() {
             <h2>Board size</h2>
             <ToggleGroup options={boardSizeModes} className='smallSelector' active={boardSize} setActive={setBoardSize}/>
             <button id='play' className='button' onClick={playButtonHandler}>play</button>
-
         </div>
     )
 }
