@@ -1,0 +1,74 @@
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+
+.button {
+    background-color: $cyan-800;
+    padding: auto;
+    box-shadow: 0px 4px 4px $gray-800;
+    cursor: pointer;
+    color: white
+
+}
+
+.activeButton {
+    background-color: $cyan-900;
+    padding: auto;
+    box-shadow: 0px 4px 4px $gray-500;
+    cursor: pointer;
+    color: white
+}
+
+
+.bigSelector {
+    width: 180px;
+    height: 180px;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+    font-size: 80px;
+}
+
+.small-change-button {
+    width: 50px;
+    height: 40px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 26px;
+}
+
+
+.large-change-button {
+    width: 70px;
+    height: 60px;
+    border-radius: 10px;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+
+#board-size-display {
+    font-size: 50px;
+    width: 100px;
+    height: 100px;
+    margin-top: 20px;
+    border-radius: 10px;
+    pointer-events: none;
+    background-color: $cyan-900;
+}
+
+
+#play-button {
+    width: 120px;
+    height: 60px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    margin-top: 50px;
+    font-size: 30px;
+
+}
