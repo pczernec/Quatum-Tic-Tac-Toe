@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import '../stylesheets/App.css';
+import '../stylesheets/App.scss';
 import Start from './Start';
 import Game from './Game';
 
@@ -9,7 +9,7 @@ function App() {
   <BrowserRouter>
     <Routes>
       <Route index element={<Start />} />
-      <Route path="game" element={<Game />} />
+      <Route path="games" element={<Game />} />
     </Routes>
   </BrowserRouter>
 
