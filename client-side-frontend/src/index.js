@@ -5,8 +5,11 @@ import reportWebVitals from './reportWebVitals';
 
 //CSS
 import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap.css';
+
+//SCSS
 import './index.scss';
+import "./stylesheets/Buttons.scss"
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
