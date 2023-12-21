@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
-import "../stylesheets/Buttons.scss"
-
 function BoardSizeButton( {value} )
 {
     return (
@@ -51,11 +49,13 @@ function Start() {
     const navigate = useNavigate();
 
     function playButtonHandler() {
-        axios.post('/games', {
-            players: playersNumber,
-            boardSize: boardSize
-          })
-        navigate("/games");
+        //axios.post('/games', {
+        //players: playersNumber,
+        //boardSize: boardSize
+        //  })
+
+        const gameId = 1;
+        navigate("/games/" + gameId);
     }
 
 

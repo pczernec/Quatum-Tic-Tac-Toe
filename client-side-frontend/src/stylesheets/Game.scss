@@ -1,0 +1,23 @@
+.Game {
+    justify-content: space-between;
+}
+
+.board-containter {
+    display: inline-block;
+}
+
+.row-container {
+    background-color: black;
+}
+
+
+.tic-tac-toe-tile {
+    width: 100px;
+    height: 100px;
+    margin: 2px;
+    background-color:beige;
+}
+
+#make-move {
+    margin: 30px;
+}
