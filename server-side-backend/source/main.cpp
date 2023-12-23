@@ -1,13 +1,18 @@
 #include "../headers/Application/Board.hpp"
+#include "../headers/API/GameResourceFactory.hpp"
+#include "../headers/API/GameServiceSettingsFactory.hpp"
+#include "../headers/API/GameService.hpp"
 #include <iostream>
 
 int main()
 {
-    std::cout<<"Hello World!"<<std::endl;
+    auto resource_factory = make_shared<GameResourceFactory>();
+    auto setting_factory = make_shared<GameServiceSettingsFactory>();
 
-    Board* board = new Board(3);
+    GameService service {resource_factory, setting_factory};
 
-    std::cout<<*board<<std::endl;
+    service.start();
+
 
     return 0;
 }
