@@ -2,18 +2,19 @@
 
 #include "Sign.hpp"
 #include "../json.hpp"
+#include <string>
 #include <vector>
 #include <memory>
 
-class Entaglement;
+class Entanglement;
 
 using nlohmann::json;
 
 class Tile {
     public:
         Tile(int idx);
-        bool add_entaglement(const std::shared_ptr<Entaglement>);
-        const std::vector<Sign> get_signs();
+        bool add_entanglement(const std::shared_ptr<Entanglement>);
+        std::vector<Sign> get_signs();
 
         json to_json();
 
@@ -21,7 +22,7 @@ class Tile {
 
     private:
         int index;
-        Sign classical_sign;
-        std::vector<std::shared_ptr<Entaglement>> entaglements;
+        Sign const_sign;
+        std::vector<std::shared_ptr<Entanglement>> entanglements;
 
 };

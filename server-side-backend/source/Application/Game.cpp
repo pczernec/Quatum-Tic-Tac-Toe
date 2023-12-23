@@ -14,7 +14,7 @@ bool Game::start()
 
 bool Game::make_move(Sign sign, int tile1_idx, int tile2_idx)
 {
-    board->make_entaglement(sign, tile1_idx, tile2_idx);
+    board->make_entanglement(sign, tile1_idx, tile2_idx);
     board->check_for_cycles();
     board->check_for_winner();
 

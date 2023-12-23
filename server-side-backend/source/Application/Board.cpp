@@ -21,7 +21,7 @@ const Tile* Board::get_tile(int i)
 }
 
 
-bool Board::make_entaglement(Sign sign, int title1_idx, int title2_idx)
+bool Board::make_entanglement(Sign sign, int title1_idx, int title2_idx)
 {
     return true;
 }

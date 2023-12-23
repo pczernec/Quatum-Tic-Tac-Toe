@@ -10,7 +10,7 @@ class Board {
     public:
         Board(int n);
 
-        bool make_entaglement(Sign sign, int title1_idx, int title2_idx);
+        bool make_entanglement(Sign sign, int title1_idx, int title2_idx);
         const bool check_for_cycles();
         const bool check_for_winner();
 

@@ -10,10 +10,24 @@ Signs
 1 -> X
 2 -> Y
 
-Tymczasowy pomysł:
-Tile = "Classical_Sign Sign_of_Entaglement Number_of_entaglement Sign_of_Entaglement Number_of_entaglement ...
+{
+    "Board" : {
+    "$tile_idx" : tile,
+    "$tile_idx" : tile,
+    "$tile_idx" : tile,
+    ...
+    }
+}
 
-"Board" : "[ Tile ] [ Tile ] ..."
+tile = {
+    "ConstSign" : sign,
+    "Entaglments" : {
+        "entaglment_number" : sing,
+        "entaglment_number" : sing
+        ...
+    }
+}
+
 
 Rozważyć JSON.
 
@@ -26,11 +40,11 @@ Ogólne
 
 Tile
 - [ ] zaimplementować get_signs
-- [ ] zastanowić się czy potrzebna jest klasa entaglement? tak... -> dodać int - nr tury, zastnaowic się czy przechowywać shared_ptr na Tile czy robić to po indexie w boardzie
-- [ ] czy vector jest ok w przechowaniu Entaglements w klasie Tile?
+- [ ] zastanowić się czy potrzebna jest klasa entanglement? tak... -> dodać int - nr tury, zastnaowic się czy przechowywać shared_ptr na Tile czy robić to po indexie w boardzie
+- [ ] czy vector jest ok w przechowaniu entanglements w klasie Tile?
 
 Board
-- [ ] zaimplementować make_entaglements
+- [ ] zaimplementować make_entanglements
 - [ ] zaimplementować check_for_cycles
 - [ ] zaimplementować check_for_winner
 - [ ] Zastanowić sie czy nie dodać pochodnej klasy implementującej rzeczy potrzebne do API

@@ -8,7 +8,7 @@ add_executable(TicTacToeAPP
     source/Application/GamesContainer.cpp
     source/Application/Game.cpp
     source/Application/Board.cpp
-    source/Application/Entaglement.cpp
+    source/Application/Entanglement.cpp
     source/Application/Tile.cpp
     source/API/GameResourceFactory.cpp
     source/API/CreateGameResourceFactory.cpp
