@@ -10,7 +10,7 @@ Board::Board(int n) : n(n)
     }
 }
 
-const int Board::get_size()
+int Board::get_size() const
 {
     return n;
 }
@@ -26,16 +26,25 @@ bool Board::make_entanglement(Sign sign, int title1_idx, int title2_idx)
     return true;
 }
 
-const bool Board::check_for_cycles()
+bool Board::check_for_cycles() const
 {
     return false;
 }
 
-const bool Board::check_for_winner()
+bool Board::check_for_winner() const
 {
     return false;
 }
 
+json Board::to_json()
+{
+    json board_json;
+    for(int i = 0; i < pow(n, 2); i++)
+    {
+        board_json["board"][std::to_string(i)] = tiles_table[i]->to_json();
+    }
+    return board_json;
+}
 
 std::ostream& operator<<(std::ostream& stream, const Board& board)
 {

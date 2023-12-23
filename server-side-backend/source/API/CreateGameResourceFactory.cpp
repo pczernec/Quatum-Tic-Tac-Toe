@@ -44,11 +44,12 @@ void CreateGameResourceFactory::make_response(const shared_ptr< Session > sessio
     int id = game->get_id();
     int status = game->get_status();
     shared_ptr<Board> board = game->get_board();
-    ostringstream board_stream;
-    board_stream<<*board;
+    json board_json = board->to_json();
     Sign currPlayer = game->get_turn();
+    string board_string = board_json.dump();
 
-    json response_json = {{"gameId", id}, {"status", status}, {"board", board_stream.str()}, {"currentPlayer", currPlayer} };
+    json response_json = {{"gameId", id}, {"status", status}, {"board", board_json.at("board")}, {"currentPlayer", currPlayer} };
+
     string response = response_json.dump();
     session->close( OK, response, { { "Content-Length", to_string(response.size()) } } );
 }

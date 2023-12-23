@@ -28,9 +28,6 @@ tile = {
     }
 }
 
-
-Rozważyć JSON.
-
 ### TODO
 Ogólne
 - [ ] rozważyć dodanie klasy player
