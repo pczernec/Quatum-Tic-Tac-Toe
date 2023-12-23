@@ -1,0 +1,23 @@
+# Server-side README
+
+## Realizacja planszy
+Za pomocą jednowymiarowej tabeli o długości n^2.
+
+
+### TODO
+Ogólne
+- [ ] rozważyć dodanie klasy player
+
+Tile
+- [ ] zaimplementować get_signs
+- [ ] zastanowić się czy potrzebna jest klasa entaglement? tak... -> dodać int - nr tury, zastnaowic się czy przechowywać shared_ptr na Tile czy robić to po indexie w boardzie
+- [ ] czy vector jest ok w przechowaniu Entaglements w klasie Tile?
+
+Board
+- [ ] zaimplementować make_entaglements
+- [ ] zaimplementować check_for_cycles
+- [ ] zaimplementować check_for_winner
+- [ ] Zastanowić sie czy nie dodać pochodnej klasy implementującej rzeczy potrzebne do API
+
+GamesContainer
+- [ ] zaimpelemtnować get_game
