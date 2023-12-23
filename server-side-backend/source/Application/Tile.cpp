@@ -16,3 +16,15 @@ const std::vector<Sign> Tile::get_signs()
 {
     return { classical_sign };
 }
+
+std::ostream& operator<<(std::ostream& stream, Tile& tile)
+{
+    std::vector<Sign> signs = tile.get_signs();
+    stream<<"[ ";
+    for( std::vector<Sign>::iterator i = signs.begin(); i != signs.end(); i++)
+    {
+        stream<<*i<<" ";
+    }
+    stream<<"]";
+    return stream;
+}

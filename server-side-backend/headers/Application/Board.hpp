@@ -5,7 +5,6 @@
 #include "../json.hpp"
 
 #include <sstream>
-#include <iomanip>
 
 class Board {
     public:
@@ -15,10 +14,15 @@ class Board {
         const bool check_for_cycles();
         const bool check_for_winner();
 
-        friend std::ostringstream& operator<<(std::ostringstream& out, const Board& board );
+        const int get_size();
 
-    //private:
+        const Tile* get_tile(int i);
+
+        friend std::ostream& operator<<(std::ostream& out, const Board& board );
+
+    private:
         int n;
+        //TODO: change to Tile* to shared_ptr?
         std::unique_ptr<Tile*[]> tiles_table;
 
 };

@@ -12,6 +12,8 @@ class Tile {
         bool add_entaglement(const std::shared_ptr<Entaglement>);
         const std::vector<Sign> get_signs();
 
+        friend std::ostream& operator<<(std::ostream& stream, Tile& tile);
+
     private:
         int index;
         Sign classical_sign;

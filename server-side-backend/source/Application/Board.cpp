@@ -10,6 +10,17 @@ Board::Board(int n) : n(n)
     }
 }
 
+const int Board::get_size()
+{
+    return n;
+}
+
+const Tile* Board::get_tile(int i)
+{
+    return tiles_table[i];
+}
+
+
 bool Board::make_entaglement(Sign sign, int title1_idx, int title2_idx)
 {
     return true;
@@ -26,16 +37,15 @@ const bool Board::check_for_winner()
 }
 
 
-// std::ostream& operator<<(std::ostream& stream, const Board& board)
-// {
-
-//     for(int i = 0; i < board.n; i++)
-//     {
-//         for(int j = 0; j < board.n; j++)
-//         {
-//             stream<<"["<<"0"<<"]";
-//         }
-//         stream<<std::endl;
-//     }
-//     return stream;
-// }
+std::ostream& operator<<(std::ostream& stream, const Board& board)
+{
+    for(int i = 0; i < board.n; i++)
+    {
+        for(int j = 0; j < board.n; j++)
+        {
+            stream<<*board.tiles_table[i*board.n + j];
+        }
+        stream<<std::endl;
+    }
+    return stream;
+}

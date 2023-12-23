@@ -3,11 +3,11 @@
 
 int main()
 {
-    std::cout<<"Hello"<<std::endl;
+    std::cout<<"Hello World!"<<std::endl;
 
     Board* board = new Board(3);
 
-    std::cout<<board->tiles_table[0]->get_signs().back()<<std::endl;
+    std::cout<<*board<<std::endl;
 
     return 0;
 }

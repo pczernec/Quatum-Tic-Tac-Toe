@@ -7,6 +7,8 @@ Za pomocą jednowymiarowej tabeli o długości n^2.
 ### TODO
 Ogólne
 - [ ] rozważyć dodanie klasy player
+- [ ] może dodac typedef?
+- [ ] może dodać using?
 
 Tile
 - [ ] zaimplementować get_signs
