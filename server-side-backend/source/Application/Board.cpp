@@ -1,12 +1,13 @@
 #include "Board.hpp"
 #include <cmath>
+#include <iostream>
 
 Board::Board(int n) : n(n)
 {
-    tiles_table = std::make_unique<Tile*[]>(pow(n, 2));
+    tiles_table = std::make_unique<std::shared_ptr<Tile>[]>(pow(n, 2));
     for(int i=0; i<pow(n, 2); i++)
     {
-        tiles_table[i] = new Tile(i);
+        tiles_table[i] = std::make_shared<Tile>(i);
     }
 }
 
@@ -15,24 +16,32 @@ int Board::get_size() const
     return n;
 }
 
-const Tile* Board::get_tile(int i)
+std::shared_ptr<Tile> Board::get_tile(int i)
 {
     return tiles_table[i];
 }
 
 
-bool Board::make_entanglement(Sign sign, int title1_idx, int title2_idx)
+bool Board::make_entanglement(Sign sign, int tile1_idx, int tile2_idx)
 {
+    //TODO checking if correct move
+    //TODO move add_entanglement to entanglement consturctor ?
+    std::shared_ptr<Entanglement> entanglement = std::make_shared<Entanglement>(sign, tiles_table[tile1_idx], tiles_table[tile2_idx]);
+    tiles_table[tile1_idx]->add_entanglement(entanglement);
+    tiles_table[tile2_idx]->add_entanglement(entanglement);
+
     return true;
 }
 
 bool Board::check_for_cycles() const
 {
+    //TODO
     return false;
 }
 
 bool Board::check_for_winner() const
 {
+    //TODO
     return false;
 }
 

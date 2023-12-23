@@ -34,6 +34,7 @@ Ogólne
 - [ ] może dodac typedef?
 - [ ] może dodać using?
 - [ ] dodać metody to_json.
+- [ ] sprawdzac czy id gry jest prawidłowe
 
 Tile
 - [ ] zaimplementować get_signs

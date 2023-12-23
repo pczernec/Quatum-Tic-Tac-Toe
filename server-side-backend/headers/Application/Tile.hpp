@@ -13,7 +13,7 @@ using nlohmann::json;
 class Tile {
     public:
         Tile(int idx);
-        bool add_entanglement(const std::shared_ptr<Entanglement>);
+        bool add_entanglement(std::shared_ptr<Entanglement>);
         std::vector<Sign> get_signs();
 
         json to_json();
