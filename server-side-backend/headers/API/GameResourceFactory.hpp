@@ -13,7 +13,6 @@ class GameResourceFactory : public IResourceFactory {
     public:
         GameResourceFactory(shared_ptr<GamesContainer> games_container);
         shared_ptr<Resource> get_resource() const final;
-        string to_json(Board &board);
 
     private:
         shared_ptr<Resource> _game_resource;

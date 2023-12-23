@@ -21,18 +21,6 @@ shared_ptr<Resource> GameResourceFactory::get_resource() const {
 }
 
 
-//TODO: move this method to new GameAPI class?
-string GameResourceFactory::to_json(Board &board)
-{
-    ostringstream str_stream;
-    str_stream<<board;
-    nlohmann::json jsonBoard = {
-        {"board", str_stream.str()}
-    };
-    return jsonBoard.dump();
-}
-
-
 int GameResourceFactory::get_game_id(const shared_ptr<Session> session)
 {
     const auto& request = session->get_request();
@@ -41,10 +29,18 @@ int GameResourceFactory::get_game_id(const shared_ptr<Session> session)
 }
 
 void GameResourceFactory::get_game_handler(const shared_ptr<Session> session) {
-    Board* board = new Board(3);
     const int game_id = get_game_id(session);
-    string content = to_json(*board);
-    session->close(OK, content,
-        {{"Content-Length", to_string(content.size())}});
+    shared_ptr<Game> game = games_container->get_game(game_id);
+
+    //TODO: sperate this to function (base class)
+    int status = game->get_status();
+    json board_json = game->get_board()->to_json();
+    Sign currentPlayer = game->get_turn();
+
+    json response_json =  { {"status", status}, {"board", board_json["board"]}, {"currentPlayer", currentPlayer}};
+    string response = response_json.dump();
+
+    session->close(OK, response,
+        {{"Content-Length", to_string(response.size())}});
 
 }

@@ -14,7 +14,6 @@ class CreateGameResourceFactory : public IResourceFactory {
         CreateGameResourceFactory(shared_ptr<GamesContainer> games_container);
         shared_ptr<Resource> get_resource() const final;
         void make_response(const shared_ptr< Session > session, const Bytes & body);
-        string to_json(Board &board);
 
     private:
         shared_ptr<Resource> _game_resource;
