@@ -8,7 +8,7 @@ GameResourceFactory::GameResourceFactory(shared_ptr<GamesContainer> games_contai
 
     _game_resource = make_shared<Resource>();
     _game_resource->set_path(
-        "/games/{id: [0-9]*}"
+        "/get_game/{id: [0-9]*}"
     );
 
     _game_resource->set_method_handler("GET", [&](const shared_ptr<Session> session){

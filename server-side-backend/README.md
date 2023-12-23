@@ -11,7 +11,7 @@ Signs
 2 -> Y
 
 {
-    "Board" : {
+    "board" : {
     "$tile_idx" : tile,
     "$tile_idx" : tile,
     "$tile_idx" : tile,
