@@ -4,20 +4,20 @@
 #include "../json.hpp"
 #include "../Application/GamesContainer.hpp"
 
-#include <tuple>
 #include <string>
 
+using nlohmann::json;
 
-class GameResourceFactory : public IResourceFactory {
+class CreateGameResourceFactory : public IResourceFactory {
 
     public:
-        GameResourceFactory(shared_ptr<GamesContainer> games_container);
+        CreateGameResourceFactory(shared_ptr<GamesContainer> games_container);
         shared_ptr<Resource> get_resource() const final;
+        void make_response(const shared_ptr< Session > session, const Bytes & body);
         string to_json(Board &board);
 
     private:
         shared_ptr<Resource> _game_resource;
-        void get_game_handler(const shared_ptr<Session> session);
-        int get_game_id(const shared_ptr<Session> session);
+        void post_new_game_handler(const shared_ptr<Session> session);
         shared_ptr<GamesContainer> games_container;
 };

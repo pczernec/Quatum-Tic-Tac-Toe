@@ -4,11 +4,25 @@
 Za pomocą jednowymiarowej tabeli o długości n^2.
 
 
+## Kodowanie tablicy
+Signs
+0 -> None
+1 -> X
+2 -> Y
+
+Tymczasowy pomysł:
+Tile = "Classical_Sign Sign_of_Entaglement Number_of_entaglement Sign_of_Entaglement Number_of_entaglement ...
+
+"Board" : "[ Tile ] [ Tile ] ..."
+
+Rozważyć JSON.
+
 ### TODO
 Ogólne
 - [ ] rozważyć dodanie klasy player
 - [ ] może dodac typedef?
 - [ ] może dodać using?
+- [ ] dodać metody to_json.
 
 Tile
 - [ ] zaimplementować get_signs
@@ -23,3 +37,4 @@ Board
 
 GamesContainer
 - [ ] zaimpelemtnować get_game
+

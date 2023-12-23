@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../Application/GamesContainer.hpp"
+
 class IService{
 
     public:

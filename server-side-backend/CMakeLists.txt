@@ -5,10 +5,13 @@ project(TicTacToeAPP)
 #TODO: check if it is possible to split this to 2 objects
 add_executable(TicTacToeAPP
     source/main.cpp
+    source/Application/GamesContainer.cpp
+    source/Application/Game.cpp
     source/Application/Board.cpp
     source/Application/Entaglement.cpp
     source/Application/Tile.cpp
     source/API/GameResourceFactory.cpp
+    source/API/CreateGameResourceFactory.cpp
     source/API/GameServiceSettingsFactory.cpp
     source/API/GameService.cpp
     )

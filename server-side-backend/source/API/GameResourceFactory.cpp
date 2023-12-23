@@ -3,7 +3,8 @@
 #include <sstream>
 #include <iomanip>
 
-GameResourceFactory::GameResourceFactory() {
+GameResourceFactory::GameResourceFactory(shared_ptr<GamesContainer> games_container)
+    : games_container(games_container) {
 
     _game_resource = make_shared<Resource>();
     _game_resource->set_path(
