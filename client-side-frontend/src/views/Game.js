@@ -13,12 +13,21 @@ function Game( props ) {
         var newBoard = new Array();
         for(let i=0; i < Object.keys(boardDict).length; i++)
         {
-            if(boardDict[i].ConstSign != 0)
-                newBoard.push(boardDict[i].ConstSign);
+            if (boardDict[i].Entanglement != null)
+            {
+                let signs = ""
+                for(let v of Object.values(boardDict[i].Entanglement))
+                {
+                    signs+=v;
+                }
+                newBoard.push(signs)
+            }
             else
-                newBoard.push("-");
-
+            {
+                newBoard.push(boardDict[i].ConstSign.toString());
+            }
         }
+        console.log(newBoard);
         return newBoard;
     }
 
@@ -30,9 +39,8 @@ function Game( props ) {
             setBoard(parseBoard(response.data.board))
         })
         .catch(function (error) {
-           // handle error
+           // TODO
            console.log(error);
-           return [ 0 ];
         })
     }
 
@@ -49,6 +57,7 @@ function Game( props ) {
 
     function reload(setBoard)
     {
+        //TODO auto reload
         getBoard();
     }
 

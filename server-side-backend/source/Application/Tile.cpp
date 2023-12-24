@@ -39,7 +39,7 @@ json Tile::to_json()
     int counter = 0;
     for(std::vector<Sign>::iterator i=signs.begin()+1; i!= signs.end(); i++)
     {
-        tile_json["Enantglement"][std::to_string(counter)] = *i;
+        tile_json["Entanglement"][std::to_string(counter)] = *i;
         counter++;
     }
 
