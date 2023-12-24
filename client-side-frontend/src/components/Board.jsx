@@ -50,7 +50,7 @@ function Board( {board, boardAction, setBoardAction, playerSign} ) {
         return (
             <div className="row-container">
             {rowTiles.map( (tile, idx) => (
-                <button className="tic-tac-toe-tile" onClick={() => markTile(row*n + idx)}>
+                <button key={idx} className="tic-tac-toe-tile" onClick={() => markTile(row*n + idx)}>
                     {renderTile(row*n + idx)}
                 </button>
             ))}

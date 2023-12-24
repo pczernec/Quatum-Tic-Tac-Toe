@@ -58,7 +58,7 @@ function Start() {
           .then(function (response) {
             console.log(response);
             const id =response.data.gameId;
-            navigate("/games/" + id,{state: response.data });
+            navigate("/games/" + id, {state: response.data});
           })
           .catch(function (error) {
             console.log(error);
