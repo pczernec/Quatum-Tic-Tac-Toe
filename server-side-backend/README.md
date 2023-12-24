@@ -11,7 +11,7 @@ Signs
 2 -> Y
 
 {
-    "Board" : {
+    "board" : {
     "$tile_idx" : tile,
     "$tile_idx" : tile,
     "$tile_idx" : tile,
@@ -34,6 +34,7 @@ Ogólne
 - [ ] może dodac typedef?
 - [ ] może dodać using?
 - [ ] dodać metody to_json.
+- [ ] sprawdzac czy id gry jest prawidłowe
 
 Tile
 - [ ] zaimplementować get_signs

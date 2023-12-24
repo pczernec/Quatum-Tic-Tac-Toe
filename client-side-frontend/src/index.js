@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './views/App';
 import reportWebVitals from './reportWebVitals';
+import axios from "axios";
+
 
 //CSS
 import 'bootstrap/dist/css/bootstrap.css';
@@ -9,7 +11,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 //SCSS
 import './index.scss';
 import "./stylesheets/Buttons.scss"
-
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

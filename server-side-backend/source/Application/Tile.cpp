@@ -2,12 +2,12 @@
 #include "Entanglement.hpp"
 
 
-Tile::Tile(int idx) : const_sign(Sign(0)), index(idx)
+Tile::Tile(int idx) : const_sign(Sign::None), index(idx)
 {
 
 }
 
-bool Tile::add_entanglement(const std::shared_ptr<Entanglement> entanglement)
+bool Tile::add_entanglement(std::shared_ptr<Entanglement> entanglement)
 {
     entanglements.push_back(entanglement);
     return true;
@@ -15,7 +15,7 @@ bool Tile::add_entanglement(const std::shared_ptr<Entanglement> entanglement)
 
 std::vector<Sign> Tile::get_signs()
 {
-    if(const_sign == Sign::None)
+    if(const_sign != Sign::None)
     {
         return { const_sign };
     }
@@ -39,7 +39,7 @@ json Tile::to_json()
     int counter = 0;
     for(std::vector<Sign>::iterator i=signs.begin()+1; i!= signs.end(); i++)
     {
-        tile_json["Enantglement"][std::to_string(counter)] = *i;
+        tile_json["Entanglement"][std::to_string(counter)] = *i;
         counter++;
     }
 

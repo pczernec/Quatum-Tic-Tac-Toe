@@ -3,16 +3,6 @@
 #include <sstream>
 #include <iomanip>
 
-//TODO: move this to another place and maybe change on to_string method
-string bytes_to_string(int size, const Byte* start){
-    string content="";
-    for(int i=0; i<size; i++)
-    {
-        content += (char) *(start+i);
-    }
-    return content;
-}
-
 
 CreateGameResourceFactory::CreateGameResourceFactory(shared_ptr<GamesContainer> games_container)
     : games_container(games_container) {

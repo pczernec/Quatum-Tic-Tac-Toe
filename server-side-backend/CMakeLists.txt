@@ -12,6 +12,7 @@ add_executable(TicTacToeAPP
     source/Application/Tile.cpp
     source/API/GameResourceFactory.cpp
     source/API/CreateGameResourceFactory.cpp
+    source/API/MakeMoveResourceFactory.cpp
     source/API/GameServiceSettingsFactory.cpp
     source/API/GameService.cpp
     )

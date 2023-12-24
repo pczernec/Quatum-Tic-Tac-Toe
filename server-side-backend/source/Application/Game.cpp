@@ -11,13 +11,18 @@ bool Game::start()
     return true;
 }
 
+bool Game::change_turn()
+{
+    turn = (turn==Sign::X) ? Sign::O : Sign::X;
+    return true;
+}
 
 bool Game::make_move(Sign sign, int tile1_idx, int tile2_idx)
 {
     board->make_entanglement(sign, tile1_idx, tile2_idx);
     board->check_for_cycles();
     board->check_for_winner();
-
+    change_turn();
     return true;
 }
 

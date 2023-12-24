@@ -10,6 +10,7 @@ class GameService : public IService {
         GameService(
             shared_ptr<IResourceFactory> resource_factory,
             shared_ptr<IResourceFactory> resource_factory2,
+            shared_ptr<IResourceFactory> resource_factory3,
             shared_ptr<IServiceSettingsFactory> settings_factory);
 
         void start() final;

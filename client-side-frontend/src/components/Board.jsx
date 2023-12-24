@@ -7,6 +7,30 @@ function Board( {board, boardAction, setBoardAction, playerSign} ) {
     const n = Math.sqrt(board.length);
     let tmpBoard = board.slice();
 
+    function convertToSigns(numbers)
+    {
+        var signs = new String();
+        for(let i of numbers)
+        {
+            if(i==0)
+            {
+                signs="-";
+            }
+            else if(i==1)
+            {
+                signs+=("X");
+            }
+            else if (i==2)
+            {
+                signs+=("O")
+            }
+            else
+            {
+                signs+=("E:"+i);
+            }
+        }
+        return signs
+    }
 
     function markTile(idx)
     {
@@ -40,9 +64,9 @@ function Board( {board, boardAction, setBoardAction, playerSign} ) {
     {
         if( boardAction.includes(idx) )
         {
-            return (board[idx] + playerSign);
+            return (convertToSigns(board[idx]) + playerSign);
         }
-        return (board[idx])
+        return convertToSigns(board[idx])
     };
 
     function renderRow(rowTiles, row)
@@ -50,7 +74,7 @@ function Board( {board, boardAction, setBoardAction, playerSign} ) {
         return (
             <div className="row-container">
             {rowTiles.map( (tile, idx) => (
-                <button className="tic-tac-toe-tile" onClick={() => markTile(row*n + idx)}>
+                <button key={idx} className="tic-tac-toe-tile" onClick={() => markTile(row*n + idx)}>
                     {renderTile(row*n + idx)}
                 </button>
             ))}

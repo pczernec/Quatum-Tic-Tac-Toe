@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Tile.hpp"
+#include "Entanglement.hpp"
 
 #include <sstream>
 
@@ -16,14 +17,13 @@ class Board {
 
         int get_size() const;
 
-        const Tile* get_tile(int i);
+        std::shared_ptr<Tile> get_tile(int i);
 
         json to_json();
         friend std::ostream& operator<<(std::ostream& out, const Board& board );
 
     private:
         int n;
-        //TODO: change to Tile* to shared_ptr?
-        std::unique_ptr<Tile*[]> tiles_table;
+        std::unique_ptr<std::shared_ptr<Tile>[]> tiles_table;
 
 };

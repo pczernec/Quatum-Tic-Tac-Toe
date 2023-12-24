@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
+
 function BoardSizeButton( {value} )
 {
     return (
@@ -49,13 +50,19 @@ function Start() {
     const navigate = useNavigate();
 
     function playButtonHandler() {
-        //axios.post('/games', {
-        //players: playersNumber,
-        //boardSize: boardSize
-        //  })
-
-        const gameId = 1;
-        navigate("/games/" + gameId);
+        //TODO: error handling
+        axios.post('/games', {
+        players: playersNumber,
+        boardSize: boardSize
+          })
+          .then(function (response) {
+            console.log(response);
+            const id =response.data.gameId;
+            navigate("/games/" + id, {state: response.data});
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
     }
 
 
