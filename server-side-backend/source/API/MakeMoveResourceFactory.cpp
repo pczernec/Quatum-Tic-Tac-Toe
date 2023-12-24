@@ -50,6 +50,8 @@ void MakeMoveResourceFactory::make_response(const shared_ptr< Session > session,
 
     shared_ptr<Game> game = games_container->get_game(id);
 
+    game->make_move(player, tile_idx1, tile_idx2);
+
     int status = game->get_status();
     shared_ptr<Board> board = game->get_board();
     json board_json = board->to_json();

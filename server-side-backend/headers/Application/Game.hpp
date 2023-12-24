@@ -9,6 +9,7 @@ class Game {
         int get_id();
         int get_status();
         Sign get_turn();
+        bool change_turn();
         std::shared_ptr<Board> get_board();
 
         bool start();

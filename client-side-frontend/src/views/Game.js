@@ -47,36 +47,61 @@ function Game( props ) {
 
     const location = useLocation();
     const [boardAction, setBoardAction] = useState([]);
+
     const {gameId} = useParams();
 
+
     let board=[ " " ];
+    let tmpPlayer="X";
     if(location.state != null)
+    {
         board=parseBoard(location.state.board);
-
+        tmpPlayer = location.state.currPlayer === 1 ? "X" : "O";
+    }
     const [boardState, setBoard] = useState(board);
-
+    const [player, setPlayer] = useState(tmpPlayer);
     function reload(setBoard)
     {
         //TODO auto reload
         getBoard();
     }
 
-    function make_move(action)
+    function make_move()
     {
-        //TODO
-        console.log("MOVE")
-        //getBoard(1);
+        if(boardAction.length != 2)
+            alert("Invalid move!");
+        else
+        {
+            //TODO: error handling
+            axios.post('/games/'+gameId+'/MakeMove', {
+                player: (player === "X") ? 1 : 2,
+                idx1: boardAction[0],
+                idx2: boardAction[1]
+                  })
+                  .then(function (response) {
+                    setBoard(parseBoard(response.data.board))
+                    setBoardAction([])
+                    let tmpPlayer = response.data.currentPlayer == "1" ? "X" : "O";
+                    setPlayer(tmpPlayer);
+                    console.log(response);
+                  })
+                  .catch(function (error) {
+                    console.log(error);
+                  });
+
+        }
     }
 
 
     return (
         <div className='App Game'>
-            <h1>Game ID: {gameId}</h1>
+            <h1>Game ID: {gameId} </h1>
+            <h2>PLAYER = {player}</h2>
             <div className="container">
-                <Board board={boardState} boardAction={boardAction} setBoardAction={setBoardAction} playerSign="X" />
+                <Board board={boardState} boardAction={boardAction} setBoardAction={setBoardAction} playerSign={player} />
             </div>
             <div className="container">
-                <button id="make-move" onClick={() => make_move(boardAction)} className="btn btn-outline-warning btn-lg">Make move</button>
+                <button id="make-move" onClick={() => make_move()} className="btn btn-outline-warning btn-lg">Make move</button>
             </div>
             <div className="container">
                 <button onClick={() => reload(setBoard)} className="btn btn-danger btn-lg">Reload</button>
